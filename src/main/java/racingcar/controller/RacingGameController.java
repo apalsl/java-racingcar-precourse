@@ -23,7 +23,7 @@ public class RacingGameController {
     private void initGameCount() {
         String gameCount = inputView.getGameCount();
         try {
-            racingGame.validGameCount(gameCount);
+            racingGame.initGameCount(gameCount);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
             initGameCount();
