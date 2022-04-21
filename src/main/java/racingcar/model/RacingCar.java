@@ -7,6 +7,11 @@ public class RacingCar {
     private Name name;
     private int position;
 
+    public RacingCar(String name) {
+        this.name = Name.from(name);
+        this.position = 0;
+    }
+
     public void move(int randomNumber) {
         if (randomNumber >= ENOUGH_POWER) {
             position++;
