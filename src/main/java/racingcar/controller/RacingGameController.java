@@ -12,7 +12,6 @@ public class RacingGameController {
     public void start() {
         readyCar();
         initGameCount();
-        startGame();
     }
 
     private void readyCar() {
@@ -21,18 +20,16 @@ public class RacingGameController {
     }
 
     private void initGameCount() {
-        String gameCount = inputView.getGameCount();
+        String round = inputView.getRound();
         try {
-            racingGame.initGameCount(gameCount);
+            racingGame.initRound(round);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
             initGameCount();
         }
 
     }
+
     private void startGame() {
-
     }
-
-
 }

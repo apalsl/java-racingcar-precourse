@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.utils.NameParse;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ public class RacingGame {
 
     private List<RacingCar> carList = new ArrayList<>();
 
-    private GameCount gameCount;
+    private Round round;
 
 
     public void ready(String carName) {
@@ -19,11 +20,8 @@ public class RacingGame {
         }
     }
 
-    public void initGameCount(String gameCount) {
-        this.gameCount = GameCount.from(gameCount);
+    public void initRound(String round) {
+        this.round = Round.from(round);
     }
-
-
-
 
 }
