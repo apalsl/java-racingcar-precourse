@@ -24,4 +24,9 @@ public class RacingGame {
         this.round = Round.from(round);
     }
 
+    public void play() {
+        for (RacingCar racingCar : this.carList) {
+            racingCar.move(Randoms.pickNumberInRange(0, 9));
+        }
+    }
 }

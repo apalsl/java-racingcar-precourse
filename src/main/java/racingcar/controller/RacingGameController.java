@@ -31,5 +31,6 @@ public class RacingGameController {
     }
 
     private void startGame() {
+        racingGame.play();
     }
 }
