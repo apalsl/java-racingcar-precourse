@@ -36,4 +36,8 @@ public class RacingCar {
     public List<Integer> getPositionHistory() {
         return this.positionHistory;
     }
+
+    public String getName() {
+        return this.name.getName();
+    }
 }

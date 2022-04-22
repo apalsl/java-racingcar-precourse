@@ -25,8 +25,18 @@ public class RacingGame {
     }
 
     public void play() {
-        for (RacingCar racingCar : this.carList) {
-            racingCar.move(Randoms.pickNumberInRange(0, 9));
+        for (int playRound = 0; playRound < this.round.getRound(); playRound++) {
+            for (RacingCar racingCar : this.carList) {
+                racingCar.move(Randoms.pickNumberInRange(0, 9));
+            }
         }
+    }
+
+    public List<RacingCar> getPlayResult() {
+        return this.carList;
+    }
+
+    public int getRound() {
+        return this.round.getRound();
     }
 }

@@ -30,4 +30,8 @@ public class Round {
     private static boolean isBlank(String round) {
         return Objects.isNull(round) || round.trim().isEmpty();
     }
+
+    public int getRound() {
+        return this.round;
+    }
 }
