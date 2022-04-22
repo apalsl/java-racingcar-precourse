@@ -26,12 +26,10 @@ class NameTest {
         String emptyName = "";
 
         Assertions.assertThatThrownBy(() -> Name.from(nullName))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[ERROR]");
+                .isInstanceOf(IllegalArgumentException.class);
 
         Assertions.assertThatThrownBy(() -> Name.from(emptyName))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[ERROR]");
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -41,8 +39,7 @@ class NameTest {
         String failName = "racing";
 
         Assertions.assertThatThrownBy(() -> Name.from(failName))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[ERROR]");
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
 }

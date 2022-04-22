@@ -1,6 +1,7 @@
 package racingcar.utils;
 
 import org.junit.jupiter.api.Test;
+import racingcar.model.error.ErrorMessage;
 
 import java.util.*;
 
@@ -9,10 +10,10 @@ public class NameParse {
 
     public static String[] parseName(String input) {
         if (isBlank(input)) {
-            throw new IllegalArgumentException("[ERROR] 잘못된 입력입니다.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_VALUE);
         }
         if (hasDuplicateName(input)) {
-            throw new IllegalArgumentException("[ERROR] 중복된 이름을 입력하였습니다.");
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATE_NAME);
         }
 
         return input.split(",");

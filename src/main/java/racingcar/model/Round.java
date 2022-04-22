@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.model.error.ErrorMessage;
+
 import java.util.Objects;
 
 public class Round {
@@ -14,10 +16,10 @@ public class Round {
 
     public static Round from(String round) {
         if (isBlank(round)) {
-            throw new IllegalArgumentException("[ERROR] 반복 횟수를 잘못 입력했습니다. 다시 입력하세요");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ROUND);
         }
         if (isNotNumber(round)) {
-            throw new IllegalArgumentException("[ERROR] 0보다 큰 숫자만 입력 가능합니다. 다시 입력하세요.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ROUND_NUMBER);
         }
 
         return new Round(Integer.valueOf(round));

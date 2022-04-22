@@ -25,20 +25,17 @@ class NameParseTest {
     void input_isBlank_IllegalArgumentException() {
 
         Assertions.assertThatThrownBy(() -> NameParse.parseName(null))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[ERROR]");
+                .isInstanceOf(IllegalArgumentException.class);
 
         Assertions.assertThatThrownBy(() -> NameParse.parseName(""))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[ERROR]");
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     @DisplayName("사용자가 중복된 이름을 입력할 경우 예외 발생")
     void input_isDuplicate_IllegalArgumentException() {
         Assertions.assertThatThrownBy(() -> NameParse.parseName("aaa,bbb,ccc,ddd,aaa"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[ERROR]");
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
 }

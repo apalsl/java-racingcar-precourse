@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.model.error.ErrorMessage;
+
 import java.util.Objects;
 
 public class Name {
@@ -14,10 +16,10 @@ public class Name {
 
     public static Name from(String name) {
         if (isBlank(name)) {
-            throw new IllegalArgumentException("[ERROR] - 잘못된 값을 입력했습니다.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_VALUE);
         }
         if (isOverNameLength(name)) {
-            throw new IllegalArgumentException("[ERROR] - 이름이 5글자를 초과합니다.");
+            throw new IllegalArgumentException(ErrorMessage.NAME_OVER_LENGTH);
         }
 
         return new Name(name);
