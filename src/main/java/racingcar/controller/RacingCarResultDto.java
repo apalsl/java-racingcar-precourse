@@ -14,7 +14,7 @@ public class RacingCarResultDto {
     }
 
     public static RacingCarResultDto from(RacingCar racingCar) {
-        return new RacingCarResultDto(racingCar.getName(), racingCar.getPositionHistory());
+        return new RacingCarResultDto(racingCar.getName(), racingCar.getPositionHistories());
     }
 
     public String getName() {

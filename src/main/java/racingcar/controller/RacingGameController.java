@@ -21,11 +21,17 @@ public class RacingGameController {
         initGameCount();
         startGame();
         showPlayResult();
+        showWinners();
     }
 
     private void readyCar() {
         String carName = inputView.getCarNames();
-        racingGame.ready(carName);
+        try {
+            racingGame.ready(carName);
+        } catch (IllegalArgumentException e) {
+            outputView.printError(e.getMessage());
+            readyCar();
+        }
     }
 
     private void initGameCount() {
@@ -33,7 +39,7 @@ public class RacingGameController {
         try {
             racingGame.initRound(round);
         } catch (IllegalArgumentException e) {
-            e.printStackTrace();
+            outputView.printError(e.getMessage());
             initGameCount();
         }
 
@@ -51,6 +57,9 @@ public class RacingGameController {
         }
 
         outputView.showPlayResult(racingCarResultDtos, racingGame.getRound());
+    }
 
+    private void showWinners() {
+        outputView.showWinners(this.racingGame.getWinners());
     }
 }

@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import java.net.NetworkInterface;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCar {
@@ -9,35 +7,49 @@ public class RacingCar {
     private static final int ENOUGH_POWER = 4;
 
     private Name name;
-    private int position;
-    private List<Integer> positionHistory;
+    private Position position;
+    private PositionHistories positionHistories;
 
     public RacingCar(String name) {
         this.name = Name.from(name);
-        this.position = 0;
-        this.positionHistory = new ArrayList<>();
+        this.position = new Position();
+        this.positionHistories = new PositionHistories();
     }
 
     public void move(int randomNumber) {
         if (randomNumber >= ENOUGH_POWER) {
-            position++;
+            this.position.move();
         }
-        addPosition();
+        addPositionHistory();
     }
 
-    private void addPosition() {
-        positionHistory.add(position);
+    private void addPositionHistory() {
+        this.positionHistories.add(position);
     }
 
-    public int getPosition() {
-        return this.position;
-    }
-
-    public List<Integer> getPositionHistory() {
-        return this.positionHistory;
+    public List<Integer> getPositionHistories() {
+        return this.positionHistories.getPositionHistories();
     }
 
     public String getName() {
         return this.name.getName();
+    }
+
+    public int equalsAndReturnBigNumber(int winnerPosition) {
+        if (this.position.lessThan(winnerPosition)) {
+            return winnerPosition;
+        }
+        return this.position.getPosition();
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+
+    public void findCarNameByPosition(List<String> carNameList, int winnerPosition) {
+        if (this.position.isEquals(winnerPosition)) {
+            carNameList.add(this.name.getName());
+        }
     }
 }
