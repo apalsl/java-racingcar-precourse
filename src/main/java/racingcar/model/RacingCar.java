@@ -46,7 +46,6 @@ public class RacingCar {
         return position;
     }
 
-
     public void findCarNameByPosition(List<String> carNameList, int winnerPosition) {
         if (this.position.isEquals(winnerPosition)) {
             carNameList.add(this.name.getName());

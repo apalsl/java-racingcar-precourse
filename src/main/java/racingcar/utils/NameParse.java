@@ -1,12 +1,10 @@
 package racingcar.utils;
 
-import org.junit.jupiter.api.Test;
 import racingcar.model.error.ErrorMessage;
 
 import java.util.*;
 
 public class NameParse {
-
 
     public static String[] parseName(String input) {
         if (isBlank(input)) {

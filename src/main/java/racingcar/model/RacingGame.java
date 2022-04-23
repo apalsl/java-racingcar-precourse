@@ -1,9 +1,5 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.utils.NameParse;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
