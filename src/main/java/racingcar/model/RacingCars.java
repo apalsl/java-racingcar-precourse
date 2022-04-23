@@ -33,7 +33,7 @@ public class RacingCars {
 
     private void play() {
         for (RacingCar racingCar : this.racingCarList) {
-            racingCar.move(Randoms.pickNumberInRange(0, 9));
+            racingCar.move(new RandomMovingStrategy());
         }
     }
 

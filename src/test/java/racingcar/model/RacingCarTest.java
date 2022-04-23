@@ -16,28 +16,29 @@ class RacingCarTest {
     }
 
     @Test
-    @DisplayName("4이상 수를 입력받으면 차가 움직인다.")
+    @DisplayName("차가 움직인다.")
     void move() {
-        racingCar.move(4);
+        racingCar.move(() -> true);
         Assertions.assertThat(racingCar.getPosition()).isEqualTo(new Position(1));
     }
 
     @Test
-    @DisplayName("3이하 수를 입력받으면 차가 움직이지 않는다.")
+    @DisplayName("차가 움직이지 않는다.")
     void stop() {
-        racingCar.move(3);
+        racingCar.move(() -> false);
         Assertions.assertThat(racingCar.getPosition()).isEqualTo(new Position(0));
     }
+
     @Test
     @DisplayName("차가 움직일때마다 현재 위치를 히스토리에 쌓는다.")
     void addHistory() {
-        racingCar.move(4);
+        racingCar.move(() -> true);
         Assertions.assertThat(racingCar.getPositionHistories().get(0)).isEqualTo(1);
 
-        racingCar.move(5);
+        racingCar.move(() -> true);
         Assertions.assertThat(racingCar.getPositionHistories().get(1)).isEqualTo(2);
 
-        racingCar.move(3);
+        racingCar.move(() -> false);
         Assertions.assertThat(racingCar.getPositionHistories().get(1)).isEqualTo(2);
     }
 

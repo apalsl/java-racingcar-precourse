@@ -15,9 +15,9 @@ class RacingCarsTest {
         RacingCars racingCars = RacingCars.from("aaa,bbb,ccc");
 
         List<RacingCar> racingCarList = racingCars.getRacingCarList();
-        racingCarList.get(0).move(4);
-        racingCarList.get(1).move(3);
-        racingCarList.get(2).move(3);
+        racingCarList.get(0).move(() -> true);
+        racingCarList.get(1).move(() -> false);
+        racingCarList.get(2).move(() -> false);
 
         List<String> winners = racingCars.findWinners();
 

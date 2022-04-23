@@ -4,8 +4,6 @@ import java.util.List;
 
 public class RacingCar {
 
-    private static final int ENOUGH_POWER = 4;
-
     private Name name;
     private Position position;
     private PositionHistories positionHistories;
@@ -16,8 +14,8 @@ public class RacingCar {
         this.positionHistories = new PositionHistories();
     }
 
-    public void move(int randomNumber) {
-        if (randomNumber >= ENOUGH_POWER) {
+    public void move(MovingStrategy movingStrategy) {
+        if (movingStrategy.isMovable()) {
             this.position.move();
         }
         addPositionHistory();
