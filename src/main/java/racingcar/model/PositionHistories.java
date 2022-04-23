@@ -5,21 +5,17 @@ import java.util.List;
 
 public class PositionHistories {
 
-    private List<Position> positionHistories;
+    private List<Integer> positionHistories;
 
     public PositionHistories() {
         this.positionHistories = new ArrayList<>();
     }
 
     public void add(Position position) {
-        this.positionHistories.add(position);
+        this.positionHistories.add(position.getPosition());
     }
 
     public List<Integer> getPositionHistories() {
-        List<Integer> histories = new ArrayList<>();
-        for (Position position : this.positionHistories) {
-            histories.add(position.getPosition());
-        }
-        return histories;
+        return positionHistories;
     }
 }
